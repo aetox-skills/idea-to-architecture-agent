@@ -36,3 +36,68 @@ Do not bury assumptions inside prose. Put them in an assumptions section or tabl
 
 Do not let major product, compliance, payment, tenancy, or security decisions
 pass as default choices.
+
+## Bad / Corrected Examples
+
+### Premature Service Splitting
+
+Bad:
+
+> The system will use microservices: booking-service, payment-service, and
+> notification-service.
+
+Problem:
+
+The raw idea did not justify separate deployable services. This turns a
+proposal into an implementation shape too early.
+
+Corrected:
+
+> Proposed modules for v1:
+>
+> - Booking module
+> - Payment integration boundary
+> - Notification module
+>
+> Service split: Requires approval. Not recommended for v1 unless scale,
+> deployment ownership, or team ownership requires it.
+
+### Proposal Written as Implementation
+
+Bad:
+
+> Create `src/payments/stripe.ts`, add the webhook handler, and migrate the
+> bookings table.
+
+Problem:
+
+Implementation planning started before the architecture proposal was approved.
+
+Corrected:
+
+> Proposed payment boundary:
+>
+> - Payment provider: Requires approval
+> - Webhook handling: Proposed
+> - Booking/payment reconciliation: Unknown
+>
+> Safe next step: approve the payment boundary before implementation planning.
+
+### Hidden Assumption
+
+Bad:
+
+> Members receive discounts automatically.
+
+Problem:
+
+The discount rule is unlabeled and may affect pricing, roles, reporting, and
+payment behavior.
+
+Corrected:
+
+> Assumed: members receive automatic discounts at checkout.
+>
+> Impact if wrong: pricing workflow and payment reconciliation may change.
+>
+> Approval status: Requires approval.

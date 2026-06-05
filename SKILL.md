@@ -66,6 +66,21 @@ Use these gates to keep the proposal flow enforceable:
   are marked `Proposed` before mapping or drafting detail.
 - Validation gate: run the five-question validation gate before Report.
 
+## Implementation Boundary
+
+This skill stops at reviewable architecture proposal work unless the user
+explicitly approves the proposal and asks for implementation planning.
+
+Do not generate implementation tasks, code structure, database migrations, API
+contracts, file-level plans, or build steps before proposal approval.
+
+Before implementation planning, output:
+
+- Approved decisions
+- Remaining assumptions
+- Unknowns
+- Safe next step
+
 ## Fast-Path Decision Tree
 
 1. If the user mentions an existing repository, codebase, files, services,
