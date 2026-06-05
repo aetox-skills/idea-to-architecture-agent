@@ -47,7 +47,9 @@ This skill produces Markdown proposal docs and Mermaid diagram sources.
 ```text
 .
 |-- SKILL.md
+|-- INSTALL.md
 |-- agents/openai.yaml
+|-- adapters/
 |-- docs/
 |-- templates/
 `-- examples/tennis-court-booking/
@@ -64,6 +66,9 @@ source. SVG is not required for this skill version.
   [`examples/tennis-court-booking/output/`](examples/tennis-court-booking/output/)
 
 ## Install
+
+See [INSTALL.md](INSTALL.md) for Codex, Claude Code, Antigravity, AGENTS.md,
+and manual installation notes.
 
 Install this Codex skill from:
 

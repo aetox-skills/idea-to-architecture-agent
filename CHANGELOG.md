@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Added cross-agent installation guidance in `INSTALL.md`.
+- Added `adapters/agents-md/AGENTS.example.md` for AGENTS.md-style runtimes.
+
 ## 0.1.0 - 2026-06-05
 
 - Added initial standalone Codex skill.
