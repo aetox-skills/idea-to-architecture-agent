@@ -1,0 +1,4 @@
+interface:
+  display_name: "Idea to Architecture Agent"
+  short_description: "Architecture proposals from raw ideas"
+  default_prompt: "Use $idea-to-architecture-agent to turn this raw idea into a reviewable architecture proposal."

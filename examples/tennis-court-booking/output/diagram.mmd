@@ -1,0 +1,31 @@
+flowchart LR
+  title["Proposed architecture"]
+  customer["Customer or member"]
+  admin["Admin"]
+  identity["Proposed identity"]
+  booking["Proposed booking"]
+  courts["Proposed court inventory"]
+  coaches["Proposed coach scheduling"]
+  pricing["Proposed pricing"]
+  payments["Proposed payments"]
+  provider["Approval required provider"]
+  notify["Proposed notifications"]
+  audit["Proposed audit events"]
+
+  title --> booking
+  customer --> identity
+  customer --> booking
+  admin --> identity
+  admin --> courts
+  admin --> coaches
+  admin --> pricing
+  booking --> courts
+  booking --> coaches
+  booking --> pricing
+  booking --> payments
+  payments --> provider
+  payments --> booking
+  booking --> notify
+  admin --> audit
+  booking --> audit
+  payments --> audit
