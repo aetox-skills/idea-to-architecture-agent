@@ -2,6 +2,15 @@
 
 Ask questions that change architecture decisions. Avoid discovery theater.
 
+## Priority Rule
+
+Ask boundary-changing questions first: ownership, tenancy, roles, data
+sensitivity, payment flow, compliance, integration ownership, and deployment
+boundaries.
+
+Ask detail questions only after critical unknowns are resolved or explicitly
+deferred with approval.
+
 ## Question Types
 
 | Type | Ask When | Example |
@@ -37,6 +46,12 @@ Assume and label when:
 
 ## Question Budget
 
-For first pass work, ask up to five architecture-impacting questions. If more
-are needed, group the rest under open questions and continue with assumptions
-where safe.
+Use the grill depth selected in `docs/workflow.md`:
+
+- Low: ask 2-3 questions maximum.
+- Medium: ask 4-6 questions.
+- High: keep questioning until all boundary-changing unknowns are resolved or
+  explicitly deferred with approval.
+
+If lower-priority detail questions remain after the grill depth budget, group
+them under open questions and continue with labeled assumptions where safe.

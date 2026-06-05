@@ -44,39 +44,80 @@ boundary review.
 - Use Markdown as the documentation source of truth.
 - Use Mermaid as editable diagram source; SVG is not required for this version.
 - Keep outputs lean and proposal-focused.
+- Do not pass a checkpoint gate until its required labels or explicit
+  limitations are present.
+
+## Checkpoint Gates
+
+Use these gates to keep the proposal flow enforceable:
+
+- Intake gate: the raw idea is restated, initial idea scope is recorded, and
+  user-provided facts are separated from unknowns.
+- Intent gate: goals, actors, constraints, and success signals are identified
+  before questioning.
+- Question gate: architecture-impacting questions are asked, or `None required`
+  is written.
+- Assumption gate: every assumption is labeled with impact if wrong and
+  approval status before proposing architecture.
+- Proposal gate: modules, workflows, data models, integrations, and boundaries
+  are marked `Proposed` before mapping or drafting detail.
+- Validation gate: run the five-question validation gate before Report.
 
 ## Fast-Path Decision Tree
 
 1. If the user mentions an existing repository, codebase, files, services,
    current architecture, boundary review, or mixed existing/proposed context,
    switch to `senior-architect-agent`.
-2. If the idea is underspecified but safe assumptions can unblock progress, ask
-   up to five architecture-impacting questions and proceed with clearly labeled
+2. At Intake, run a complexity scan and record grill depth:
+   - Low: single workflow, no payment, no authentication, no external
+     integration, and no regulated data. Ask 2-3 questions maximum.
+   - Medium: 2-4 modules, simple integration, or basic roles. Ask 4-6
+     questions.
+   - High: payment, authentication, multi-role access, regulated data,
+     multi-service boundaries, or compliance. Ask until boundary-changing
+     unknowns are resolved or explicitly deferred with approval.
+3. If the idea is underspecified but safe assumptions can unblock progress, use
+   the grill depth question budget and proceed with clearly labeled
    assumptions.
-3. If the idea involves regulated data, payments, security, identity, minors,
+   If the user does not answer, continue only with assumptions marked
+   `Assumed` and `Requires approval`; do not present the proposal as approved.
+4. If the idea involves regulated data, payments, security, identity, minors,
    medical/legal/financial stakes, or production migration, list
    approval-required decisions before proposing details.
-4. If the user asks for only a small slice, produce the smallest relevant
+5. If the user asks for only a small slice, produce the smallest relevant
    artifact instead of the full proposal set.
-5. If the user asks for diagrams, provide Mermaid source that labels the content as proposed.
+6. If the user asks for diagrams, provide Mermaid source that labels the
+   content as proposed.
+
+## Grill Loop Exit
+
+Stop questioning when all boundary-changing unknowns are either resolved or
+explicitly deferred with approval. State remaining assumptions clearly before
+proceeding to proposal work. If the user does not answer, proceed only with
+explicit assumptions that require approval.
 
 ## Workflow
 
 Follow this sequence:
 
-1. Intake: restate the raw idea and identify user-provided facts.
+1. Intake: restate the raw idea, record initial idea scope, identify
+   user-provided facts, separate unknowns, and run the complexity scan.
+   Intake gate must pass before intent extraction.
 2. Extract Intent: capture goals, actors, outcomes, constraints, and success
-   signals.
-3. Ask Questions: ask architecture-impacting questions; separate must-answer
-   from can-assume.
+   signals. Intent gate must pass before questioning.
+3. Ask Questions: ask architecture-impacting questions according to grill depth;
+   separate must-answer from can-assume. Question gate must pass before
+   assumptions.
 4. State Assumptions: label each assumption and explain why it is safe or needs
-   approval.
+   approval. Assumption gate must pass before proposing architecture.
 5. Propose Architecture: describe proposed modules, boundaries, integrations,
-   and decision options.
+   and decision options. Proposal gate must pass before mapping workflows or
+   drafting data detail.
 6. Map Workflows: draft proposed user/system workflows from trigger to outcome.
-7. Draft Data Model: list proposed entities, relationships, ownership, and sensitive data.
+7. Draft Data Model: list proposed entities, relationships, ownership, and
+   sensitive data.
 8. Identify Risks: document risks, unknowns, mitigations, and early validation steps.
-9. Validate: run the validation gate below.
+9. Validate: run the validation gate below before Report.
 10. Report: summarize artifacts, approval points, unknowns, and safe next actions.
 
 ## Validation Gate
@@ -88,6 +129,10 @@ Before finalizing, verify:
 3. Proposed architecture clearly marked as proposed?
 4. Decisions requiring approval listed?
 5. Handoff includes unknowns and safe next actions?
+
+Also compare the final proposal scope to the initial idea scope recorded at
+Intake. If the proposal expanded, list what was added and mark each addition as
+user-requested, justified by the idea, or requiring approval.
 
 ## Suggested Artifacts
 

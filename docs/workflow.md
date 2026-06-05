@@ -14,6 +14,19 @@ Separate:
 - Stated constraints
 - Missing context
 
+Record the initial idea scope so validation can detect proposal expansion.
+
+Run a complexity scan and record grill depth:
+
+- Low: single workflow, no payment, no authentication, no external integration,
+  and no regulated data.
+- Medium: 2-4 modules, simple integration, or basic roles.
+- High: payment, authentication, multi-role access, regulated data,
+  multi-service boundaries, or compliance.
+
+Intake gate: pass only when the idea is restated, initial scope is recorded,
+and user-provided facts are separated from unknowns.
+
 ## 2. Extract Intent
 
 Identify:
@@ -25,6 +38,9 @@ Identify:
 - Constraints and non-goals
 - Success signals
 
+Intent gate: pass only when goals, actors, constraints, and success signals are
+identified before questioning.
+
 ## 3. Ask Questions
 
 Ask only architecture-impacting questions. Prefer fewer, sharper questions.
@@ -32,6 +48,19 @@ Ask only architecture-impacting questions. Prefer fewer, sharper questions.
 Use assumptions when the answer can be safely revised later. Pause for approval
 when the answer changes boundaries, data ownership, compliance, cost, payment
 flow, or security posture.
+
+Use grill depth to set question volume:
+
+- Low: ask 2-3 questions maximum.
+- Medium: ask 4-6 questions.
+- High: ask until all boundary-changing unknowns are resolved or explicitly
+  deferred with approval.
+
+If the user does not answer, proceed only with assumptions marked `Assumed`
+and `Requires approval`; do not present the proposal as approved.
+
+Question gate: pass only when architecture-impacting questions are asked, or
+`None required` is written.
 
 ## 4. State Assumptions
 
@@ -44,6 +73,9 @@ Each assumption should include:
 - Impact if wrong
 - Whether approval is required
 
+Assumption gate: pass only when every assumption has impact if wrong and
+approval status.
+
 ## 5. Propose Architecture
 
 Label every item as proposed.
@@ -55,6 +87,9 @@ Cover:
 - Proposed integrations
 - Proposed decision options
 - Proposed tradeoffs
+
+Proposal gate: pass only when modules, workflows, data models, integrations,
+and boundaries are marked `Proposed` before mapping or drafting detail.
 
 ## 6. Map Workflows
 
@@ -95,7 +130,11 @@ Include:
 
 ## 9. Validate
 
-Run the validation gate from `SKILL.md`.
+Run the five-question validation gate from `SKILL.md` before Report.
+
+Compare final proposal scope to the initial idea scope recorded at Intake. If
+the proposal expanded, list what was added and mark each addition as
+user-requested, justified by the idea, or requiring approval.
 
 ## 10. Report
 

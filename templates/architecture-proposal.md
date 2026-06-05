@@ -2,9 +2,35 @@
 
 Status: Proposed
 
+## Evidence Strength Labels
+
+| Label | Meaning |
+| --- | --- |
+| User-provided | Stated directly by the user. |
+| Assumed | Working premise, labeled with impact if wrong. |
+| Proposed | Agent-generated, not yet approved. |
+| Unknown | Not yet answered, must be resolved or accepted before build. |
+| Requires approval | Cannot be treated as approved until the user accepts it. |
+
+## Scope Status Labels
+
+| Label | Meaning |
+| --- | --- |
+| User-requested | Added directly by user request. |
+| Justified | Added because it is necessary to satisfy the stated idea. |
+| Requires approval | Added by proposal and must be approved before build. |
+
 ## User-Provided Intent
 
 - User-provided:
+
+## Scope Check
+
+| Item | Label | Notes |
+| --- | --- | --- |
+| Initial idea scope | User-provided / Assumed |  |
+| Final proposal scope | Proposed |  |
+| Added scope | User-requested / Justified / Requires approval |  |
 
 ## Assumptions
 
