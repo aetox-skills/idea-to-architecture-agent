@@ -32,11 +32,17 @@ Status: Proposed
 | Final proposal scope | Proposed |  |
 | Added scope | User-requested / Justified / Requires approval |  |
 
+## Recommended Direction
+
+| Direction | Label | Why this direction | Approval status |
+| --- | --- | --- | --- |
+|  | Proposed |  | Requires approval |
+
 ## Assumptions
 
-| Assumption | Impact if wrong | Requires approval |
-| --- | --- | --- |
-| Assumed: |  | No |
+| Assumption | Severity | Impact if wrong | Requires approval |
+| --- | --- | --- | --- |
+| Assumed: | Dealbreaker / Important / Nice-to-have |  | No |
 
 ## Proposed Architecture Summary
 
@@ -59,6 +65,12 @@ Status: Proposed
 | Decision | Options | Recommendation |
 | --- | --- | --- |
 |  |  | Proposed: |
+
+## Not Doing / Proposed Exclusions
+
+| Exclusion | Why excluded | Scope impact |
+| --- | --- | --- |
+| Proposed exclusion: |  |  |
 
 ## Unknowns
 

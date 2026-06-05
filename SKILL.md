@@ -61,10 +61,58 @@ Use these gates to keep the proposal flow enforceable:
   is written. Each important question includes a recommended default when safe,
   plus the tradeoff or approval risk.
 - Assumption gate: every assumption is labeled with impact if wrong and
-  approval status before proposing architecture.
+  approval status before proposing architecture. Add assumption severity where
+  relevant.
 - Proposal gate: modules, workflows, data models, integrations, and boundaries
   are marked `Proposed` before mapping or drafting detail.
-- Validation gate: run the five-question validation gate before Report.
+- Validation gate: run the validation gate before Report.
+
+## Problem Framing
+
+After Intake, frame the idea as:
+
+```txt
+How might we [desired outcome] for [target user] without [constraint]?
+```
+
+The frame must identify target user, problem, constraint, and success signal.
+Use `User-provided` values when stated directly. Use `Assumed` only when the
+inference is safe and reversible. Mark unsafe or boundary-changing gaps as
+`Unknown` and ask focused questions before architecture proposal work.
+
+Treat these frames as not ready for architecture proposal:
+
+- Solution-first: embeds a specific implementation instead of the problem.
+- Too broad: does not constrain user, outcome, or boundary.
+- Constraint-free: lacks a tradeoff, limitation, or success signal.
+
+## Diverge Before Propose
+
+Use bounded divergence only when the idea is fuzzy, broad, or solution-first.
+Skip this step when the user gives a clear direction.
+
+Generate 2-4 `Proposed` product or system directions. Each direction must state
+target user, core problem, value thesis, scope fit, and major exclusion.
+
+Do not generate module structures, database designs, service boundaries, API
+contracts, code structure, or implementation tasks during divergence.
+
+## Converge Before Architecture
+
+Before architecture proposal work, select or recommend one direction.
+
+Evaluate candidate directions by:
+
+- User value
+- Feasibility
+- Differentiation
+- Scope fit
+- Architecture boundary risk
+- Assumption severity: `Dealbreaker`, `Important`, or `Nice-to-have`
+
+Keep the recommended direction labeled `Proposed` until the user approves it.
+Architecture proposal work starts only after a selected proposed direction
+exists or the user's direction is already clear.
 
 ## Implementation Boundary
 
@@ -122,21 +170,26 @@ Follow this sequence:
    user-provided facts, separate unknowns, and run the complexity scan.
    Intake gate must pass before intent extraction.
 2. Extract Intent: capture goals, actors, outcomes, constraints, and success
-   signals. Intent gate must pass before questioning.
+   signals, then create a How Might We problem frame. Intent gate must pass
+   before questioning.
 3. Ask Questions: ask architecture-impacting questions according to grill depth;
    separate must-answer from can-assume. Question gate must pass before
    assumptions.
-4. State Assumptions: label each assumption and explain why it is safe or needs
+4. Diverge Before Propose: if the idea is fuzzy, broad, or solution-first,
+   generate 2-4 proposed product/system directions; otherwise skip.
+5. Converge Before Architecture: evaluate candidate directions and keep the
+   selected direction labeled `Proposed` until approved.
+6. State Assumptions: label each assumption and explain why it is safe or needs
    approval. Assumption gate must pass before proposing architecture.
-5. Propose Architecture: describe proposed modules, boundaries, integrations,
+7. Propose Architecture: describe proposed modules, boundaries, integrations,
    and decision options. Proposal gate must pass before mapping workflows or
    drafting data detail.
-6. Map Workflows: draft proposed user/system workflows from trigger to outcome.
-7. Draft Data Model: list proposed entities, relationships, ownership, and
+8. Map Workflows: draft proposed user/system workflows from trigger to outcome.
+9. Draft Data Model: list proposed entities, relationships, ownership, and
    sensitive data.
-8. Identify Risks: document risks, unknowns, mitigations, and early validation steps.
-9. Validate: run the validation gate below before Report.
-10. Report: summarize artifacts, approval points, unknowns, and safe next actions.
+10. Identify Risks: document risks, unknowns, mitigations, and early validation steps.
+11. Validate: run the validation gate below before Report.
+12. Report: summarize artifacts, approval points, unknowns, and safe next actions.
 
 ## Validation Gate
 
@@ -147,10 +200,16 @@ Before finalizing, verify:
 3. Proposed architecture clearly marked as proposed?
 4. Decisions requiring approval listed?
 5. Handoff includes unknowns and safe next actions?
+6. How Might We frame is actionable, bounded, and not solution-embedded?
+7. Selected direction is labeled `Proposed`, not approved?
+8. Assumption severity exists where relevant?
+9. Not Doing / Proposed Exclusions list exists?
+10. No implementation planning leaked into output?
 
 Also compare the final proposal scope to the initial idea scope recorded at
 Intake. If the proposal expanded, list what was added and mark each addition as
-user-requested, justified by the idea, or requiring approval.
+user-requested, justified by the idea, or requiring approval. Use the Not Doing
+/ Proposed Exclusions list to confirm intentional omissions and scope creep.
 
 ## Suggested Artifacts
 

@@ -19,6 +19,19 @@
 - User-provided:
 - Unknown:
 
+## Problem Frame
+
+```txt
+How might we [desired outcome] for [target user] without [constraint]?
+```
+
+| Element | Label | Notes |
+| --- | --- | --- |
+| Target user | User-provided / Assumed / Unknown |  |
+| Problem | User-provided / Assumed / Unknown |  |
+| Constraint | User-provided / Assumed / Unknown |  |
+| Success signal | User-provided / Assumed / Unknown |  |
+
 ## Complexity Scan
 
 | Grill depth | Reason |
@@ -54,8 +67,22 @@
 | --- | --- | --- | --- |
 |  | Proposed / Assumed: |  | Unknown / Requires approval |
 
+## Sharpening Questions
+
+| Focus | Question | Status |
+| --- | --- | --- |
+| Target user / Problem / Constraint / Success signal / Prior attempt / Why now |  | Unknown / Answered / Deferred |
+
+## Candidate Directions
+
+Use only when the idea is fuzzy, broad, or solution-first.
+
+| Direction | Target user | Core problem | Value thesis | Scope fit | Major exclusion |
+| --- | --- | --- | --- | --- | --- |
+| Proposed: |  |  |  |  | Proposed exclusion: |
+
 ## Assumptions
 
-| Assumption | Why safe for now | Impact if wrong | Requires approval |
-| --- | --- | --- | --- |
-| Assumed: |  |  | No |
+| Assumption | Severity | Why safe for now | Impact if wrong | Requires approval |
+| --- | --- | --- | --- | --- |
+| Assumed: | Dealbreaker / Important / Nice-to-have |  |  | No |

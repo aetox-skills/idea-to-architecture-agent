@@ -41,7 +41,32 @@ Identify:
 Intent gate: pass only when goals, actors, constraints, and success signals are
 identified before questioning.
 
-## 3. Ask Questions
+## 3. Problem Framing
+
+Create a How Might We frame:
+
+```txt
+How might we [desired outcome] for [target user] without [constraint]?
+```
+
+The frame must identify:
+
+- Target user
+- Problem
+- Constraint
+- Success signal
+
+Use explicit user-provided values when available. Use safe assumptions only
+when they are reversible. Mark unsafe or boundary-changing gaps as `Unknown`
+and ask focused questions before architecture proposal work.
+
+Reject frames that are:
+
+- Solution-first: embeds a specific implementation instead of the problem.
+- Too broad: lacks a clear target user, outcome, or boundary.
+- Constraint-free: lacks a real tension, limitation, or success signal.
+
+## 4. Ask Questions
 
 Ask only architecture-impacting questions. Prefer fewer, sharper questions.
 
@@ -71,7 +96,41 @@ Question gate: pass only when architecture-impacting questions are asked, or
 `None required` is written. Important questions should include a recommended
 default unless the decision is unsafe to recommend.
 
-## 4. State Assumptions
+## 5. Diverge Before Propose
+
+Use this step only when the idea is fuzzy, broad, or solution-first. Skip it
+when the user gives a clear direction.
+
+Generate 2-4 `Proposed` product or system directions. Each direction must
+include:
+
+- Target user
+- Core problem
+- Value thesis
+- Scope fit
+- Major exclusion
+
+Do not generate module structures, database designs, service boundaries, API
+contracts, code structure, or implementation tasks.
+
+## 6. Converge Before Architecture
+
+Before architecture proposal work, select or recommend one direction.
+
+Evaluate candidate directions by:
+
+- User value
+- Feasibility
+- Differentiation
+- Scope fit
+- Architecture boundary risk
+- Assumption severity: `Dealbreaker`, `Important`, or `Nice-to-have`
+
+Keep the selected direction labeled `Proposed` until approved. Architecture
+proposal work starts only after a selected proposed direction exists or the
+user's direction is already clear.
+
+## 7. State Assumptions
 
 Document assumptions before proposing architecture.
 
@@ -82,10 +141,10 @@ Each assumption should include:
 - Impact if wrong
 - Whether approval is required
 
-Assumption gate: pass only when every assumption has impact if wrong and
-approval status.
+Assumption gate: pass only when every assumption has impact if wrong, approval
+status, and severity where relevant.
 
-## 5. Propose Architecture
+## 8. Propose Architecture
 
 Label every item as proposed.
 
@@ -100,7 +159,7 @@ Cover:
 Proposal gate: pass only when modules, workflows, data models, integrations,
 and boundaries are marked `Proposed` before mapping or drafting detail.
 
-## 6. Map Workflows
+## 9. Map Workflows
 
 Draft proposed workflows from trigger to outcome.
 
@@ -113,7 +172,7 @@ Include:
 - Failure paths
 - Open questions
 
-## 7. Draft Data Model
+## 10. Draft Data Model
 
 Draft proposed entities and relationships.
 
@@ -125,7 +184,7 @@ Call out:
 - Retention questions
 - Reporting needs
 
-## 8. Identify Risks
+## 11. Identify Risks
 
 List risks as proposal risks, not existing defects.
 
@@ -137,15 +196,25 @@ Include:
 - Early validation step
 - Owner or decision-maker when known
 
-## 9. Validate
+## 12. Validate
 
-Run the five-question validation gate from `SKILL.md` before Report.
+Run the validation gate from `SKILL.md` before Report.
 
 Compare final proposal scope to the initial idea scope recorded at Intake. If
 the proposal expanded, list what was added and mark each addition as
 user-requested, justified by the idea, or requiring approval.
 
-## 10. Report
+Also verify:
+
+- How Might We frame is actionable, bounded, and not solution-embedded.
+- Selected direction is labeled `Proposed`, not approved.
+- Assumption severity exists where relevant.
+- Not Doing / Proposed Exclusions list exists.
+- No implementation planning leaked into output.
+
+Use proposed exclusions to identify scope creep or intentional omissions.
+
+## 13. Report
 
 End with:
 

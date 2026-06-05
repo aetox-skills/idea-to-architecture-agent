@@ -11,6 +11,37 @@ boundaries.
 Ask detail questions only after critical unknowns are resolved or explicitly
 deferred with approval.
 
+## Problem Framing Questions
+
+Use these sharpening questions before architecture proposal work when target
+user, problem, constraint, or success signal is unclear:
+
+| Focus | Ask When | Example |
+| --- | --- | --- |
+| Target user | The audience is broad or generic. | "Who is this for first? Recommended default: pick the narrowest user with the strongest pain." |
+| Problem | The request names a solution before a pain point. | "What problem should this solve if the proposed solution changes?" |
+| Constraint | The idea has no tradeoff or boundary. | "What must this avoid: cost, time, complexity, compliance risk, or operational burden?" |
+| Success signal | The desired outcome is subjective. | "What observable result would make this proposal successful?" |
+| Prior attempt | Existing workaround or failure mode is unknown. | "What has been tried before, and why did it fall short?" |
+| Why now | Urgency or timing may change scope. | "Why does this need to happen now rather than later?" |
+
+## How Might We Rules
+
+Use a How Might We frame as an intent check:
+
+```txt
+How might we [desired outcome] for [target user] without [constraint]?
+```
+
+A good frame is:
+
+- Actionable enough to guide architecture boundaries.
+- Broad enough to allow multiple product or system directions.
+- Constrained by a real tension, limit, or success signal.
+- Not solution-embedded.
+- Not so broad that ownership, data, or workflow boundaries cannot be reasoned
+  about.
+
 ## Question With Recommendation
 
 Do not ask open-ended questions that simply transfer the decision burden to the
