@@ -50,9 +50,9 @@
 
 ## Architecture-Impacting Questions
 
-| Question | Why it matters | Status |
-| --- | --- | --- |
-|  |  | Unknown |
+| Question | Recommended default | Why / tradeoff | Status |
+| --- | --- | --- | --- |
+|  | Proposed / Assumed: |  | Unknown / Requires approval |
 
 ## Assumptions
 

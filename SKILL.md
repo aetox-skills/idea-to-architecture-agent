@@ -35,6 +35,8 @@ boundary review.
 - Preserve user intent before optimizing or reframing it.
 - Ask architecture-impacting questions first when answers materially change
   boundaries, data, risk, cost, compliance, or delivery sequence.
+- When asking architecture-impacting questions, include a recommended default
+  and short tradeoff when it is safe to recommend one.
 - Continue with explicit assumptions when safe; stop for approval when an
   assumption could invalidate the architecture.
 - Mark every module, workflow, data model, integration, and boundary as
@@ -56,7 +58,8 @@ Use these gates to keep the proposal flow enforceable:
 - Intent gate: goals, actors, constraints, and success signals are identified
   before questioning.
 - Question gate: architecture-impacting questions are asked, or `None required`
-  is written.
+  is written. Each important question includes a recommended default when safe,
+  plus the tradeoff or approval risk.
 - Assumption gate: every assumption is labeled with impact if wrong and
   approval status before proposing architecture.
 - Proposal gate: modules, workflows, data models, integrations, and boundaries

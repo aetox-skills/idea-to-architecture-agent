@@ -45,6 +45,14 @@ identified before questioning.
 
 Ask only architecture-impacting questions. Prefer fewer, sharper questions.
 
+When safe, each important question should include:
+
+- Recommended default
+- Why that default is useful
+- Alternative option
+- Impact if the user chooses differently
+- Whether the recommendation requires approval
+
 Use assumptions when the answer can be safely revised later. Pause for approval
 when the answer changes boundaries, data ownership, compliance, cost, payment
 flow, or security posture.
@@ -60,7 +68,8 @@ If the user does not answer, proceed only with assumptions marked `Assumed`
 and `Requires approval`; do not present the proposal as approved.
 
 Question gate: pass only when architecture-impacting questions are asked, or
-`None required` is written.
+`None required` is written. Important questions should include a recommended
+default unless the decision is unsafe to recommend.
 
 ## 4. State Assumptions
 

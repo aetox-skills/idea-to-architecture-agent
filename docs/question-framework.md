@@ -11,18 +11,32 @@ boundaries.
 Ask detail questions only after critical unknowns are resolved or explicitly
 deferred with approval.
 
+## Question With Recommendation
+
+Do not ask open-ended questions that simply transfer the decision burden to the
+user. When safe, pair each architecture-impacting question with:
+
+- Recommended default
+- Why it is the default
+- Alternative
+- Impact
+- Approval status
+
+Recommended defaults are not approvals. Mark them as `Assumed`, `Proposed`, or
+`Requires approval` until the user accepts them.
+
 ## Question Types
 
 | Type | Ask When | Example |
 | --- | --- | --- |
-| Goal | The outcome is ambiguous. | "Is the priority faster booking, higher utilization, or lower admin effort?" |
-| Actor | Users or permissions are unclear. | "Which actor can cancel a paid booking?" |
-| Boundary | Ownership could split across modules or services. | "Should payments be owned inside this product or delegated to a payment provider?" |
-| Data | Persistence, privacy, or reporting needs are unclear. | "Which customer data must be retained after cancellation?" |
-| Workflow | Order of operations affects risk. | "Should payment be authorized before or after court availability is held?" |
-| Integration | External systems are likely. | "Does this need calendar, payment, email, or club management integration?" |
-| Compliance | Rules may constrain design. | "Are there tax, refund, age, or membership rules that affect booking?" |
-| Scale | Capacity changes architecture. | "Is this for one venue, many venues, or a marketplace?" |
+| Goal | The outcome is ambiguous. | "Is the priority faster booking, higher utilization, or lower admin effort? Recommended default: faster booking first for v1." |
+| Actor | Users or permissions are unclear. | "Which actor can cancel a paid booking? Recommended default: member self-cancel before cutoff, admin override anytime." |
+| Boundary | Ownership could split across modules or services. | "Should payments be owned inside this product or delegated to a provider? Recommended default: provider-owned payment processing." |
+| Data | Persistence, privacy, or reporting needs are unclear. | "Which customer data must be retained after cancellation? Recommended default: retain booking audit data, minimize payment data." |
+| Workflow | Order of operations affects risk. | "Should payment be authorized before or after court availability is held? Recommended default: short availability hold before payment." |
+| Integration | External systems are likely. | "Does this need calendar, payment, email, or club integration? Recommended default: payment and email only for v1." |
+| Compliance | Rules may constrain design. | "Are there tax, refund, age, or membership rules? Recommended default: mark policy as approval-required before build." |
+| Scale | Capacity changes architecture. | "Is this for one venue, many venues, or a marketplace? Recommended default: one venue first unless multi-venue is stated." |
 
 ## Must-Answer Questions
 
